@@ -1,4 +1,4 @@
-export default function Portofolio() {
+export default function Porto() {
     return (
         <div></div>
     );

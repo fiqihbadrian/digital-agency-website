@@ -1,4 +1,4 @@
-export default function Testi() {
+export default function Testimonials() {
     return (
         <div></div>
     );
