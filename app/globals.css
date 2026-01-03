@@ -1,63 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #171717;
+  --text-secondary: #666666;
+  --border-color: #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.dark {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  @apply transition-colors duration-300;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Don't override nav text with CSS variables */
+nav, nav a, nav button, nav span {
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, section {
+  color: var(--text-primary);
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
-/* Animation utilities */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+html.dark {
+  color-scheme: dark;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+/* Hero section dark mode */
+html.dark #hero {
+  background: linear-gradient(to bottom, #111827, #1f2937);
 }
 
-.animation-delay-200 {
-  animation-delay: 0.2s;
-  opacity: 0;
+#hero h1 {
+  color: var(--text-primary);
 }
 
-.animation-delay-400 {
-  animation-delay: 0.4s;
-  opacity: 0;
+#hero p {
+  color: var(--text-primary);
 }
 
-.animation-delay-600 {
-  animation-delay: 0.6s;
-  opacity: 0;
+/* Navbar styling */
+nav {
+  transition: background-color 0.3s ease;
+}
+
+html.dark nav div {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+html.dark nav {
+  background-color: transparent;
+}
+
+/* Section backgrounds */
+section {
+  background-color: var(--bg-primary);
 }
 

@@ -1,5 +1,10 @@
-export default function Porto() {
+'use client';
+import { FaWhatsapp, FaRocket } from 'react-icons/fa';
+
+export default function Portfolio() {
+
     return (
-        <div></div>
+        <section id="portfolio">
+        </section>
     );
 }
